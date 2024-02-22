@@ -1,13 +1,21 @@
 import { Link } from "react-router-dom";
 import { useAtom } from 'jotai';
 import { client } from "../../App";
+import { useNavigate } from "react-router-dom";
 
 export default function Navbar()
 {
     
     const [data, setData] = useAtom(client);
-
+    const navigate = useNavigate();
     const isDataNotEmpty = Object.keys(data).length > 0;
+
+    function logOut()
+    {
+        setData({});
+        navigate("/");
+        
+    }
 
     return(
 
@@ -23,16 +31,20 @@ export default function Navbar()
                         <li className="nav-item">
                             <Link className="text-white nav-link active" to="/myquests">My Quests</Link>
                         </li>
-                        <li className="nav-item">
-                            <Link className="text-white  nav-link active" to="/loginform">Login</Link>
-                        </li>
+                        {!isDataNotEmpty && 
+                            (
+                                <li className="nav-item">
+                                    <Link className="text-white  nav-link active" to="/loginform">Login</Link>
+                                </li>
+                            )
+                        }
                         {isDataNotEmpty && (
                             <>
                                 <li className="nav-item">
                                     <Link className="text-white nav-link active" to="/">Guild image</Link>
                                 </li>
                                 <li className="nav-item">
-                                    <Link className="text-white nav-link active" to="/">Seal image</Link>
+                                    <Link className="text-white nav-link active" to="/" onClick={logOut}>Seal image</Link>
                                 </li>
                             </>
                         )

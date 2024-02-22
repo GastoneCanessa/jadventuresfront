@@ -27,7 +27,8 @@ export default function LoginForm()
     {
         axios.post("/guilds/login",login).then(
             (response)=>
-            {
+            {   console.log("qui");
+                console.log(response);
                 setData(response.data);
                 navigate("/");
             }
@@ -39,16 +40,16 @@ export default function LoginForm()
         <div className="container ">
             <form>
                 <div className="mb-3">
-                    <label for="exampleInputEmail1" className="form-label">Create Date</label>
-                    <input name="name" type="date" className="form-control" id="date" aria-describedby="emailHelp" value={login.name} onChange={synchronize}/>
+                    <label className="form-label">Create Date</label>
+                    <input name="name" type="text" className="form-control" id="date" aria-describedby="emailHelp" value={login.name} onChange={synchronize}/>
                 </div>
 
                 <div className="mb-3">
-                    <label for="exampleInputPassword1" className="form-label">Rank</label>
+                    <label className="form-label">Rank</label>
                     <input name="authentication_seal" type="password" className="form-control" id="exampleInputPassword1" aria-describedby="emailHelp" value={login.authentication_seal} onChange={synchronize}/>
                 </div>
 
-                <button type="submit" className="btn btn-primary">Login</button>
+                <input className="btn btn-primary" type="button" onClick={sendForm} value="Login"/>
             </form>
         </div>
     );

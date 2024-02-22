@@ -29,7 +29,7 @@ export default function LoginForm()
             (response)=>
             {  
                 setData(response.data);
-                navigate("/myquest");
+                // navigate("/myquest");
             }
         )//questo manda una post avente come body pers JSONIZZATO
     }
@@ -44,7 +44,7 @@ export default function LoginForm()
                 </div>
 
                 <div className="mb-3">
-                    <label className="form-label">Rank</label>
+                    <label className="form-label">Authentication Seal</label>
                     <input name="authentication_seal" type="password" className="form-control" id="exampleInputPassword1" aria-describedby="emailHelp" value={login.authentication_seal} onChange={synchronize}/>
                 </div>
 

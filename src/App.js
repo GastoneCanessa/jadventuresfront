@@ -1,24 +1,34 @@
 import logo from './logo.svg';
 import './App.css';
+import { Route } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
+import { Routes } from 'react-router-dom';
+import AllQuests from './components/quest/AllQuests';
+import Navbar from './components/navbar/Navbar';
+import "bootstrap/dist/css/bootstrap.css";
+import LoginForm from './components/login/LoginForm';
+import MyQuestPage from './components/guild/MyQuestsPage';
+import { atom } from 'jotai';
+
+export const client = atom({});
 
 function App() {
+
+  
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+    <>
+      <BrowserRouter>
+        <Navbar />
+        <Routes>
+          <Route path=''element={<AllQuests/>}></Route>
+          <Route path='/loginform'element={<LoginForm/>}></Route>
+          <Route path='/myquest'element={<MyQuestPage/>}></Route>
+        </Routes>
+      </BrowserRouter>
+    </>
+    
   );
 }
 

@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom';
 export default function SingleQuest(props) {
 
     return (
-        <div className='row'>
+        <div className='col col-md-6'>
+            <div className='container text-center'>
             <div className="card shadow mb-4">
                 <img src={props.q.map_url} className="card-img-top" alt="Quest Image" />
                 <div className="card-body">
@@ -13,6 +14,7 @@ export default function SingleQuest(props) {
                     <p className="card-text">Reward: {props.q.reward}</p>
                     <Link className="card-link" to={"/quests/"+ props.q.id}>More Details</Link>
                 </div>
+            </div>
             </div>
         </div>
     );

@@ -7,6 +7,7 @@ import AllQuests from './components/quest/AllQuests';
 import Navbar from './components/navbar/Navbar';
 import "bootstrap/dist/css/bootstrap.css";
 import LoginForm from './components/login/LoginForm';
+import MyQuestPage from './components/guild/MyQuestsPage';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Routes>
           <Route path=''element={<AllQuests/>}></Route>
           <Route path='/loginform'element={<LoginForm/>}></Route>
+          <Route path='/myquest'element={<MyQuestPage/>}></Route>
         </Routes>
       </BrowserRouter>
     </>

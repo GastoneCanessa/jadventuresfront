@@ -24,7 +24,7 @@ function App() {
         <Routes>
           <Route path=''element={<AllQuests/>}></Route>
           <Route path='/loginform'element={<LoginForm/>}></Route>
-          <Route path='/myquests'element={<MyQuestPage/>}></Route>
+          <Route path='/myquest'element={<MyQuestPage/>}></Route>
         </Routes>
       </BrowserRouter>
     </>

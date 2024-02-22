@@ -29,7 +29,7 @@ export default function LoginForm()
             (response)=>
             {  
                 setData(response.data);
-                // navigate("/myquest");
+                navigate("/");
             }
         )//questo manda una post avente come body pers JSONIZZATO
     }

@@ -27,8 +27,7 @@ export default function LoginForm()
     {
         axios.post("/guilds/login",login).then(
             (response)=>
-            {   console.log("qui");
-                console.log(response);
+            {  
                 setData(response.data);
                 navigate("/");
             }
@@ -40,7 +39,7 @@ export default function LoginForm()
         <div className="container ">
             <form>
                 <div className="mb-3">
-                    <label className="form-label">Create Date</label>
+                    <label className="form-label">Guild Name</label>
                     <input name="name" type="text" className="form-control" id="date" aria-describedby="emailHelp" value={login.name} onChange={synchronize}/>
                 </div>
 

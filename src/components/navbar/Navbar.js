@@ -13,7 +13,7 @@ export default function Navbar()
                         <Link className="text-white  nav-link active" to="/">All Quests</Link>
                     </li>
                     <li className="nav-item">
-                        <Link className="text-white nav-link active" to="/">My Quests</Link>
+                        <Link className="text-white nav-link active" to="/myquests">My Quests</Link>
                     </li>
                     <li className="nav-item">
                         <Link className="text-white  nav-link active" to="/loginform">Login</Link>

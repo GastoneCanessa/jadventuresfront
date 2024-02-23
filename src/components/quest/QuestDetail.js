@@ -27,6 +27,8 @@ export default function QuestDetail() {
 
 
     function saveQuest() {
+        let body = quest
+        body.guild_id = quest.guild.id
         axios.put("/quests", quest)
             .then(() => setUpdating(false));
     }

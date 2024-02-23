@@ -24,7 +24,7 @@ export default function MyQuestPage() {
             <div className="col-3 border border-black">
                 <NewQuestForm />
             </div>
-            <div className="col-9 ">
+            <div className="col-9 px-4">
                 <div className="row">
                     {Quests && Quests.map((q) => <SingleQuest q={q} index={q.id} />)}
                 </div>

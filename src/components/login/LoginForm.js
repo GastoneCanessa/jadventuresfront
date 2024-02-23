@@ -15,7 +15,7 @@ export default function LoginForm() {
             authentication_seal: ""
         }
     );
-    
+
 
     function synchronize(e) {
         let clone = { ...login };

@@ -1,4 +1,4 @@
-export default function QuestDetailMofible()
+export default function QuestDetailModifible()
 {
     return(
         <>

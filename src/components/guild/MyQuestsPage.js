@@ -13,19 +13,16 @@ export default function MyQuestPage() {
     useEffect(
         () => 
         {
-            console.log("Richiesta API: /quests/byguild/" + guild.id);//id 5
-
             axios.get("/quests/byguild/" + guild.id).then(
                 (response) => 
                 { 
                     setQuests(response.data); 
-                    console.log("fase impostazione set quests: /quests/byguild/" + guild.id);//id 5
                 }
             )
         },
         []
     );
-    // console.log("finito useeffect"+guild);
+  
 
     return (
         <div className="row">

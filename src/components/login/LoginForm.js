@@ -32,7 +32,6 @@ export default function LoginForm() {
                 const guildId = response.data.id;
                 navigate("/myquests/byguild/" + guildId);
 
-                console.log("id??" + guildId);
             })
             .catch((error) => {
                 if (error.response) {

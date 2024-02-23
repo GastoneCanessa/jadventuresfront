@@ -12,17 +12,7 @@ export default function Navbar() {
     const isDataNotEmpty = Object.keys(data).length > 0;
     const [image,setImage]=useState("");
 
-    
-    // useEffect(()=>
-    // {
-    //     axios.get("/guilds/" + data.id).then(
-    //         (response) => {
-    //             setImage(response.data.);
-                
-    //         }), []
-
-    // });   
-    
+  
     
     function logOut() {
         setData({});
@@ -30,14 +20,7 @@ export default function Navbar() {
 
     }
 
-    // function prendiImmagineGuil()
-    // {
-    //     axios.get("/guilds/"+data.id).then(response=>{
-    //         setImage(response.data);
-    //     })
-
-    // }
-
+    
     return (
 
         <>

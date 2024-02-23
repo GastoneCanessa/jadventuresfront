@@ -7,7 +7,7 @@ import axios from "axios";
 
 export default function MyQuestPage() {
     const [guild, setGuild] = useAtom(client);
-    
+    const [fleaker, setFleaker] = useState(false);
     const [Quests, setQuests] = useState([]);
 
     useEffect(
@@ -20,14 +20,18 @@ export default function MyQuestPage() {
                 }
             )
         },
-        []
+        [fleaker]
     );
-  
+
+    function invertFleaker()
+    {
+        setFleaker(!fleaker)
+    }
 
     return (
         <div className="row">
             <div className="col-3 border border-black">
-                <NewQuestForm />
+                <NewQuestForm  invertFleaker={invertFleaker}/>
             </div>
             <div className="col-9 px-4">
                 <div className="row">

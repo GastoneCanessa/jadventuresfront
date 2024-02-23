@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { client } from "../../App";
 import { useAtom } from 'jotai';
 
-export default function NewQuestForm() {
+export default function NewQuestForm(props) {
     const navigate = useNavigate();
     const [data, setData] = useAtom(client);
     const [success, setSuccess] = useState(false);
@@ -38,7 +38,7 @@ export default function NewQuestForm() {
         console.log(quest);
         axios.post("/quests", quest).then(
             () => {
-                navigate("/myquests")
+                props.invertFleaker();
             }
         )
     }

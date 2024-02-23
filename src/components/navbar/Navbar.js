@@ -3,21 +3,19 @@ import { useAtom } from 'jotai';
 import { client } from "../../App";
 import { useNavigate } from "react-router-dom";
 
-export default function Navbar()
-{
-    
+export default function Navbar() {
+
     const [data, setData] = useAtom(client);
     const navigate = useNavigate();
     const isDataNotEmpty = Object.keys(data).length > 0;
 
-    function logOut()
-    {
+    function logOut() {
         setData({});
         navigate("/");
-        
+
     }
 
-    return(
+    return (
 
         <>
             <nav className="sticky-top text-white bg-black mb-4 navbar navbar-expand-lg ">
@@ -28,10 +26,8 @@ export default function Navbar()
                         <li className="nav-item">
                             <Link className="text-white  nav-link active" to="/">All Quests</Link>
                         </li>
-                        <li className="nav-item">
-                            <Link className="text-white nav-link active" to="/myquests">My Quests</Link>
-                        </li>
-                        {!isDataNotEmpty && 
+
+                        {!isDataNotEmpty &&
                             (
                                 <li className="nav-item">
                                     <Link className="text-white  nav-link active" to="/loginform">Login</Link>
@@ -40,6 +36,9 @@ export default function Navbar()
                         }
                         {isDataNotEmpty && (
                             <>
+                                <li className="nav-item">
+                                    <Link className="text-white nav-link active" to="/myquests">My Quests</Link>
+                                </li>
                                 <li className="nav-item">
                                     <Link className="text-white nav-link active" to="/">{data.name}</Link>
                                 </li>
@@ -53,5 +52,5 @@ export default function Navbar()
                 </div>
             </nav>
         </>
-            );
+    );
 }

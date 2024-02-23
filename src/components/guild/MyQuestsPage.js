@@ -20,7 +20,7 @@ export default function MyQuestPage() {
             </div>
             <div className="col-6 border border-black">
                 <div className="row">
-                    {Quests.map((q) => <SingleQuest q={q} index={q.id} />)}
+                    {Quests && Quests.map((q) => <SingleQuest q={q} index={q.id} />)}
                 </div>
             </div>
         </div>

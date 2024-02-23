@@ -2,7 +2,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { client } from "../../App";
 import { useAtom } from 'jotai';
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export default function LoginForm() {
     const navigate = useNavigate();

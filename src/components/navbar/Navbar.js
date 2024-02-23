@@ -41,7 +41,7 @@ export default function Navbar()
                         {isDataNotEmpty && (
                             <>
                                 <li className="nav-item">
-                                    <Link className="text-white nav-link active" to="/">Guild image</Link>
+                                    <Link className="text-white nav-link active" to="/">{data.name}</Link>
                                 </li>
                                 <li className="nav-item">
                                     <Link className="text-white nav-link active" to="/" onClick={logOut}>Seal image</Link>

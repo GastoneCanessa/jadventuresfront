@@ -14,9 +14,7 @@ import QuestDetail from './components/quest/QuestDetail';
 export const client = atom({});
 
 function App() {
-
   
-
   return (
 
     <>
@@ -25,8 +23,7 @@ function App() {
         <Routes>
           <Route path=''element={<AllQuests/>}></Route>
           <Route path='/loginform'element={<LoginForm/>}></Route>
-          <Route path='/myquest'element={<MyQuestPage/>}></Route>
-          <Route path='/quests/:id' element={<QuestDetail/>}></Route>
+          <Route path='/myquests'element={<MyQuestPage/>}></Route>
         </Routes>
       </BrowserRouter>
     </>

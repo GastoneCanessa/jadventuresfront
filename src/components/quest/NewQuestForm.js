@@ -38,7 +38,7 @@ export default function NewQuestForm(props) {
         console.log(quest);
         axios.post("/quests", quest).then(
             () => {
-                props.invertFleaker();
+                props.invertFlicker();
             }
         )
     }

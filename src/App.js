@@ -6,12 +6,14 @@ import { Routes } from 'react-router-dom';
 import AllQuests from './components/quest/AllQuests';
 import Navbar from './components/navbar/Navbar';
 import "bootstrap/dist/css/bootstrap.css";
-import LoginForm from './components/login/LoginForm';
 import MyQuestPage from './components/guild/MyQuestsPage';
 import { atom } from 'jotai';
 import QuestDetail from './components/quest/QuestDetail';
+import LoginFormParty from './components/login/LoginFormParty';
+import LoginFormGuild from './components/login/LoginFormGuild';
 
 export const client = atom({});
+export const party = atom({});
 
 function App() {
   
@@ -21,10 +23,11 @@ function App() {
       <BrowserRouter>
         <Navbar />
         <Routes>
-          <Route path=''element={<AllQuests/>}></Route>
-          <Route path='/loginform'element={<LoginForm/>}></Route>
-          <Route path='/myquests/byguild/:id'element={<MyQuestPage/>}></Route>
-          <Route path='/quests/:id'element={<QuestDetail/>}></Route>
+          <Route path='' element={<AllQuests/>}></Route>
+          <Route path='/loginguild' element={<LoginFormGuild/>}></Route>
+          <Route path='/loginparty' element={<LoginFormParty/>}></Route>
+          <Route path='/myquests/byguild/:id' element={<MyQuestPage/>}></Route>
+          <Route path='/quests/:id' element={<QuestDetail/>}></Route>
         </Routes>
       </BrowserRouter>
     </>

@@ -3,24 +3,24 @@ import { useAtom } from 'jotai';
 import { client } from "../../App";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { useEffect, useState  } from "react";
+import { useEffect, useState } from "react";
 
 export default function Navbar() {
 
     const [data, setData] = useAtom(client);
     const navigate = useNavigate();
     const isDataNotEmpty = Object.keys(data).length > 0;
-    const [image,setImage]=useState("");
+    const [image, setImage] = useState("");
 
-  
-    
+
+
     function logOut() {
         setData({});
         navigate("/");
 
     }
 
-    
+
     return (
 
         <>
@@ -35,9 +35,15 @@ export default function Navbar() {
 
                         {!isDataNotEmpty &&
                             (
-                                <li className="nav-item">
-                                    <Link className="text-white  nav-link active" to="/loginform">Login</Link>
-                                </li>
+                                <>
+                                    <li className="nav-item">
+                                        <Link className="text-white  nav-link active" to="/loginguild">Login Guild</Link>
+                                    </li>
+
+                                    <li className="nav-item">
+                                        <Link className="text-white  nav-link active" to="/loginparty">Login Party</Link>
+                                    </li>
+                                </>
                             )
                         }
                         {isDataNotEmpty && (

@@ -46,13 +46,13 @@ export default function Navbar() {
                                     <Link className="text-white nav-link active" to={"/myquests/byguild/" + data.id} >My Quests</Link>
                                 </li>
                                 <li className="nav-item">
-                                    <Link className="text-white nav-link active" to="/">{data.name}</Link>
+                                    <Link className="text-white nav-link active border me-1" to="/">{data.name}</Link>
                                 </li>
                                 <li className="nav-item">
                                     {/* <Link className="text-white nav-link active" to="/" onClick={logOut}>Seal image</Link> */}
                                     <Link to="" className="navbar-brand">
                                         <img
-                                            style={{ width: "50px", height: "50px" }}
+                                            style={{ width: "50px", height: "40px" }}
                                             src={data.seal_img_url}
                                             alt="Logo"
                                             onClick={logOut}

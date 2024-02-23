@@ -10,14 +10,14 @@ export default function MyQuestPage() {
     
     const [Quests, setQuests] = useState([]);
 
-    // useEffect(
-    //     () => {
-    //         axios.get("/quests/byguild/" + Guild.id).then(
-    //             response => { setQuests(response.data); }
-    //         )
-    //     },
-    //     []
-    // );
+    useEffect(
+        () => {
+            axios.get("/quests/byguild/" + Guild.id).then(
+                response => { setQuests(response.data); }
+            )
+        },
+        []
+    );
     console.log(Guild);
 
     return (

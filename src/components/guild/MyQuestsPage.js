@@ -7,16 +7,17 @@ import axios from "axios";
 
 export default function MyQuestPage() {
     const [Guild, setGuild] = useAtom(client);
+    
     const [Quests, setQuests] = useState([]);
 
-    useEffect(
-        () => {
-            axios.get("/quests/byguild/" + Guild.id).then(
-                response => { setQuests(response.data); }
-            )
-        },
-        []
-    );
+    // useEffect(
+    //     () => {
+    //         axios.get("/quests/byguild/" + Guild.id).then(
+    //             response => { setQuests(response.data); }
+    //         )
+    //     },
+    //     []
+    // );
     console.log(Guild);
 
     return (

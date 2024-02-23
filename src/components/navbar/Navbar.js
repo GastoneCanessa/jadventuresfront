@@ -3,28 +3,28 @@ import { useAtom } from 'jotai';
 import { client } from "../../App";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { useEffect, useState  } from "react";
+import { useEffect, useState } from "react";
 
 export default function Navbar() {
 
     const [data, setData] = useAtom(client);
     const navigate = useNavigate();
     const isDataNotEmpty = Object.keys(data).length > 0;
-    const [image,setImage]=useState("");
+    const [image, setImage] = useState("");
 
-  
-    
+
+
     function logOut() {
         setData({});
         navigate("/");
 
     }
 
-    
+
     return (
 
         <>
-            <nav className="sticky-top text-white bg-black mb-4 navbar navbar-expand-lg ">
+            <nav className="sticky-top text-white mb-4 navbar navbar-expand-lg" style={{ backgroundColor: "#597E52" }} >
                 <div className="container">
 
                     <Link className="text-primary navbar-brand" to="homepage"></Link>

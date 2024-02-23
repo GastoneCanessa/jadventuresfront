@@ -12,7 +12,7 @@ export default function AllQuests() {
     const refStatus = useRef(null);
     const refArea = useRef(null);
     const [flicker, setFlicker] = useState(false);
-    const rankToNumber = {"S": 5, "A":4, "B":3,"C":2,"D":1};
+    const rankToNumber = { "S": 5, "A": 4, "B": 3, "C": 2, "D": 1 };
     // const [questToShow,setQuestToShow] = useState({
     //     type:"",
     //     min_quest_rank:"",
@@ -31,7 +31,7 @@ export default function AllQuests() {
     },
         []
     );
-    
+
 
     function notifyMyFather(q) {
         let clone = [...quests];
@@ -39,8 +39,7 @@ export default function AllQuests() {
         setQuests(clone);
     }
 
-    function isShowable(q, minR, maxR, typ, stat, mRew, are) 
-    {
+    function isShowable(q, minR, maxR, typ, stat, mRew, are) {
         if (!minR && !maxR && !typ && !stat && !mRew && !are) {
             // Se tutti i valori sono vuoti o nulli, mostra tutte le quest
             return true;
@@ -60,13 +59,13 @@ export default function AllQuests() {
         if (minR && minR.toUpperCase() !== "A" && minR.toUpperCase() !== "S" && minR.toUpperCase() !== "B" && minR.toUpperCase() !== "C" && minR.toUpperCase() !== "D")
             return false;
 
-        if(minR && rankToNumber[minR.toUpperCase()]>rankToNumber[q.quest_rank])
+        if (minR && rankToNumber[minR.toUpperCase()] > rankToNumber[q.quest_rank])
             return false;
 
         if (maxR && maxR.toUpperCase() !== "A" && maxR.toUpperCase() !== "S" && maxR.toUpperCase() !== "B" && maxR.toUpperCase() !== "C" && maxR.toUpperCase() !== "D")
             return false;
 
-        if(maxR && rankToNumber[maxR.toUpperCase()]<rankToNumber[q.quest_rank])
+        if (maxR && rankToNumber[maxR.toUpperCase()] < rankToNumber[q.quest_rank])
             return false;
 
         return true;
@@ -75,10 +74,10 @@ export default function AllQuests() {
     const handleFilter = () => {
 
         setFlicker(!flicker);
-        
+
     };
-    
-    useEffect(()=>{
+
+    useEffect(() => {
         refminRank.current.value = "";
         refmaxRank.current.value = "";
         refType.current.value = "";
@@ -86,9 +85,9 @@ export default function AllQuests() {
         refStatus.current.value = "";
         refArea.current.value = "";
     },
-    [flicker]
+        [flicker]
     )
-    
+
     // function synchronize(e)
     // {
     //     let clone={...questToShow};
@@ -106,38 +105,40 @@ export default function AllQuests() {
     //     refArea.current.value = "";
     // })
     return (
-        <div className="container text-center ">
-            <div className="row ">
-                <div className="sticky-top col col-lg-4  " >
-                    <div className="p-2 bg-dark">
-                        <label htmlFor="type" className="fw-bold form-label me-2" style={{ color: "white" }}>Insert type:</label> <br />
-                        <input id="type" name="type" className="form-control" style={{ color: "white", backgroundColor: "black", width: "100%" }} ref={refType}  type="text" aria-label="Recipient's username" aria-describedby="button-addon2" />
-                    </div>
-                    <div className="p-2 bg-dark" >
-                        <label htmlFor="y" className="fw-bold form-label me-2" style={{ color: "white" }}>Insert min rank:</label> <br />
-                        <input id="y" name="min_quest_rank" className="form-control" style={{ color: "white", backgroundColor: "black", width: "100%" }} ref={refminRank}  type="text" aria-label="Recipient's username" aria-describedby="button-addon2" />
-                    </div>
-                    <div className="p-2 bg-dark" >
-                        <label htmlFor="y" className="fw-bold form-label me-2" style={{ color: "white" }}>Insert max rank:</label> <br />
-                        <input id="y" name="max_quest_rank" className="form-control" style={{ color: "white", backgroundColor: "black", width: "100%" }} ref={refmaxRank}  type="text" aria-label="Recipient's username" aria-describedby="button-addon2" />
-                    </div>
+        <div className="text-center">
+            <div className="row">
 
-                    <div className="p-2 bg-dark" >
-                        <label htmlFor="y" className="fw-bold form-label me-2" style={{ color: "white" }}>Insert max reward:</label> <br />
-                        <input id="y" name="max_reward" className="form-control" style={{ color: "white", backgroundColor: "black", width: "100%" }} ref={refminReward}  type="number" aria-label="Recipient's username" aria-describedby="button-addon2" />
+                <div className="sticky-top col col-4" >
+                    <div className=" card px-3 mx-4" style={{ backgroundColor: "#597E52" }} >
+                        <div className="p-2 px-4" >
+                            <label htmlFor="type" className="fw-bold form-label me-2" style={{ color: "white" }}>Insert type:</label> <br />
+                            <input id="type" name="type" className="form-control" style={{ color: "white", backgroundColor: "#879e6a", width: "100%" }} ref={refType} type="text" aria-label="Recipient's username" aria-describedby="button-addon2" />
+                        </div>
+                        <div className="p-2 px-4">
+                            <label htmlFor="y" className="fw-bold form-label me-2" style={{ color: "white" }}>Insert min rank:</label> <br />
+                            <input id="y" name="min_quest_rank" className="form-control" style={{ color: "white", backgroundColor: "#879e6a", width: "100%" }} ref={refminRank} type="text" aria-label="Recipient's username" aria-describedby="button-addon2" />
+                        </div>
+                        <div className="p-2 px-4">
+                            <label htmlFor="y" className="fw-bold form-label me-2" style={{ color: "white" }}>Insert max rank:</label> <br />
+                            <input id="y" name="max_quest_rank" className="form-control" style={{ color: "white", backgroundColor: "#879e6a", width: "100%" }} ref={refmaxRank} type="text" aria-label="Recipient's username" aria-describedby="button-addon2" />
+                        </div>
+
+                        <div className="p-2 px-4">
+                            <label htmlFor="y" className="fw-bold form-label me-2" style={{ color: "white" }}>Insert max reward:</label> <br />
+                            <input id="y" name="max_reward" className="form-control" style={{ color: "white", backgroundColor: "#879e6a", width: "100%" }} ref={refminReward} type="number" aria-label="Recipient's username" aria-describedby="button-addon2" />
+                        </div>
+                        <div className="p-2 px-4">
+                            <label htmlFor="y" className="fw-bold form-label me-2" style={{ color: "white" }}>Insert area:</label> <br />
+                            <input id="y" name="area" className="form-control" style={{ color: "white", backgroundColor: "#879e6a", width: "100%" }} ref={refArea} type="text" aria-label="Recipient's username" aria-describedby="button-addon2" />
+                        </div>
+                        <div className="p-2 px-4">
+                            <label htmlFor="y" className="fw-bold form-label me-2" style={{ color: "white" }}>Insert status:</label> <br />
+                            <input id="y" name="status" className="form-control" style={{ color: "white", backgroundColor: "#879e6a", width: "100%" }} ref={refStatus} type="text" aria-label="Recipient's username" aria-describedby="button-addon2" />
+                        </div>
+                        <button id="filtrato" type="button" className="btn btn-outline-dark align-middle mt-2" onClick={handleFilter}    >Filtra</button>
                     </div>
-                    <div className="p-2 bg-dark" >
-                        <label htmlFor="y" className="fw-bold form-label me-2" style={{ color: "white" }}>Insert area:</label> <br />
-                        <input id="y" name="area" className="form-control" style={{ color: "white", backgroundColor: "black", width: "100%" }} ref={refArea} type="text"  aria-label="Recipient's username" aria-describedby="button-addon2" />
-                    </div>
-                    <div className="p-2 bg-dark" >
-                        <label htmlFor="y" className="fw-bold form-label me-2" style={{ color: "white" }}>Insert status:</label> <br />
-                        <input id="y" name="status" className="form-control" style={{ color: "white", backgroundColor: "black", width: "100%" }} ref={refStatus}  type="text" aria-label="Recipient's username" aria-describedby="button-addon2" />
-                    </div>
-                    <button id="filtrato" type="button" className="btn btn-outline-dark align-middle mt-2" onClick={handleFilter}    >Filtra</button>
                 </div>
-
-                <div className="col col-xlg-8 ">
+                <div className="col col-8 px-4">
                     <div className="row">
                         {quests.filter(q => isShowable(q, refminRank.current.value, refmaxRank.current.value, refType.current.value, refStatus.current.value, refminReward.current.value, refArea.current.value))
                             .map(q => (
@@ -149,6 +150,7 @@ export default function AllQuests() {
                             ))} */}
                     </div>
                 </div>
+
             </div>
         </div>
     );

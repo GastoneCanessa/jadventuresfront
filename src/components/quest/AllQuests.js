@@ -22,9 +22,7 @@ export default function AllQuests() {
     },
         []
     );
-
-
-
+    
 
     function notifyMyFather(q) {
         let clone = [...quests];
@@ -33,6 +31,10 @@ export default function AllQuests() {
     }
 
     function isShowable(q, minR, maxR, typ, stat, mRew, are) {
+        if (!minR && !maxR && !typ && !stat && !mRew && !are) {
+            // Se tutti i valori sono vuoti o nulli, mostra tutte le quest
+            return true;
+        }
         if (typ && !q.type.toLowerCase().includes(typ.toLowerCase()))
             return false;
 
@@ -55,47 +57,53 @@ export default function AllQuests() {
         return true;
     }
 
+    const handleFilterClick = () => {
+        // Svuota i valori dei campi di input
+        refminRank.current.value = "";
+        refmaxRank.current.value = "";
+        refType.current.value = "";
+        refminReward.current.value = "";
+        refStatus.current.value = "";
+        refArea.current.value = "";
+
+        // Esegui il filtro
+        setFlicker(!flicker);
+    };
 
     return (
-        <div className="row">
-            <div className="col-4  ">
-                <div className="sticky-top bg-dark m-3 " style={{ height: "30vh", top: "100px" ,backgroundColor: "black"}}>
-                    <div className="input-group p-2 ">
+        <div className="container text-center ">
+            <div className="row ">
+                <div className="sticky-top col col-lg-4  " >
+                    <div className="p-2 bg-dark">
                         <label htmlFor="type" className="fw-bold form-label me-2" style={{ color: "white" }}>Insert type:</label> <br />
-                        <input id="type" className="input-group" style={{ color: "white", backgroundColor: "black" }} ref={refType} type="text" aria-label="Recipient's username" aria-describedby="button-addon2" />
+                        <input id="type" className="form-control" style={{ color: "white", backgroundColor: "black", width: "100%" }} ref={refType} type="text" aria-label="Recipient's username" aria-describedby="button-addon2" />
                     </div>
-                    <div className="input-group p-2 bg-dark " >
+                    <div className="p-2 bg-dark" >
                         <label htmlFor="y" className="fw-bold form-label me-2" style={{ color: "white" }}>Insert min rank:</label> <br />
-                        <input id="y" className="input-group" style={{ color: "white", backgroundColor: "black" }} ref={refminRank} type="text" aria-label="Recipient's username" aria-describedby="button-addon2">
-                        </input>
+                        <input id="y" className="form-control" style={{ color: "white", backgroundColor: "black", width: "100%" }} ref={refminRank} type="text" aria-label="Recipient's username" aria-describedby="button-addon2" />
                     </div>
-                    <div className="input-group p-2 bg-dark" >
+                    <div className="p-2 bg-dark" >
                         <label htmlFor="y" className="fw-bold form-label me-2" style={{ color: "white" }}>Insert max rank:</label> <br />
-                        <input id="y" className="input-group" style={{ color: "white", backgroundColor: "black" }} ref={refmaxRank} type="text" aria-label="Recipient's username" aria-describedby="button-addon2">
-                        </input>
+                        <input id="y" className="form-control" style={{ color: "white", backgroundColor: "black", width: "100%" }} ref={refmaxRank} type="text" aria-label="Recipient's username" aria-describedby="button-addon2" />
                     </div>
-                    <div>
-                        <div className="input-group p-2 bg-dark" >
-                            <label htmlFor="y" className="fw-bold form-label me-2" style={{ color: "white" }}>Insert max reward:</label> <br />
-                            <input id="y" className="input-group" style={{ color: "white", backgroundColor: "black" }} ref={refminReward} type="number" aria-label="Recipient's username" aria-describedby="button-addon2">
-                            </input>
-                        </div>
-                        <div className="input-group p-2 bg-dark" >
-                            <label htmlFor="y" className="fw-bold form-label me-2" style={{ color: "white" }}>Insert area:</label> <br />
-                            <input id="y" className="input-group" style={{ color: "white", backgroundColor: "black" }} ref={refArea} type="text" aria-label="Recipient's username" aria-describedby="button-addon2">
-                            </input>
-                        </div>
-                        <div className="input-group p-2 bg-dark" >
-                            <label htmlFor="y" className="fw-bold form-label me-2" style={{ color: "white" }}>Insert status:</label> <br />
-                            <input id="y" className="input-group" style={{ color: "white", backgroundColor: "black" }} ref={refStatus} type="text" aria-label="Recipient's username" aria-describedby="button-addon2">
-                            </input>
-                        </div>
-                        <button type="button" className="btn btn-outline-dark align-middle mt-2" onClick={() => setFlicker(!flicker)} >Filtra</button>
-                    </div>
-                </div>
-                <div className="col-8 ">
-                    <div className="row">
 
+                    <div className="p-2 bg-dark" >
+                        <label htmlFor="y" className="fw-bold form-label me-2" style={{ color: "white" }}>Insert max reward:</label> <br />
+                        <input id="y" className="form-control" style={{ color: "white", backgroundColor: "black", width: "100%" }} ref={refminReward} type="number" aria-label="Recipient's username" aria-describedby="button-addon2" />
+                    </div>
+                    <div className="p-2 bg-dark" >
+                        <label htmlFor="y" className="fw-bold form-label me-2" style={{ color: "white" }}>Insert area:</label> <br />
+                        <input id="y" className="form-control" style={{ color: "white", backgroundColor: "black", width: "100%" }} ref={refArea} type="text" aria-label="Recipient's username" aria-describedby="button-addon2" />
+                    </div>
+                    <div className="p-2 bg-dark" >
+                        <label htmlFor="y" className="fw-bold form-label me-2" style={{ color: "white" }}>Insert status:</label> <br />
+                        <input id="y" className="form-control" style={{ color: "white", backgroundColor: "black", width: "100%" }} ref={refStatus} type="text" aria-label="Recipient's username" aria-describedby="button-addon2" />
+                    </div>
+                    <button id="filtrato" type="button" className="btn btn-outline-dark align-middle mt-2" onClick={handleFilterClick}>Filtra</button>
+                </div>
+
+                <div className="col col-xlg-8 ">
+                    <div className="row">
                         {quests.filter(q => isShowable(q, refminRank.current.value, refmaxRank.current.value, refType.current.value, refStatus.current.value, refminReward.current.value, refArea.current.value))
                             .map(q => (
                                 <SingleQuest key={q.id} q={q} notifyMyFather={notifyMyFather} />
@@ -105,4 +113,5 @@ export default function AllQuests() {
             </div>
         </div>
     );
+
 }

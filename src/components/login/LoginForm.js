@@ -15,7 +15,6 @@ export default function LoginForm() {
             authentication_seal: ""
         }
     );
-
     
 
     function synchronize(e) {
@@ -30,6 +29,7 @@ export default function LoginForm() {
             .then((response) => {
                 setData(response.data);
                 navigate("/myquests");
+                
             })
             .catch((error) => {
                 if (error.response) {

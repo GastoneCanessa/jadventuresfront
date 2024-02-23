@@ -60,15 +60,6 @@ export default function NewQuestForm(props) {
         )
     }
 
-    // function success() {
-    //     if (quest.status === "SUCCESS" || quest.status === "FAILED") {
-    //         return true;
-    //     }
-
-    //     return false;
-    // }
-
-
     return (
         <div className="container p-5">
             <form>

@@ -22,9 +22,7 @@ export default function AllQuests() {
     },
         []
     );
-
-
-
+    
 
     function notifyMyFather(q) {
         let clone = [...quests];
@@ -59,6 +57,18 @@ export default function AllQuests() {
         return true;
     }
 
+    const handleFilterClick = () => {
+        // Svuota i valori dei campi di input
+        refminRank.current.value = "";
+        refmaxRank.current.value = "";
+        refType.current.value = "";
+        refminReward.current.value = "";
+        refStatus.current.value = "";
+        refArea.current.value = "";
+
+        // Esegui il filtro
+        setFlicker(!flicker);
+    };
 
     return (
         <div className="container text-center ">
@@ -89,7 +99,7 @@ export default function AllQuests() {
                         <label htmlFor="y" className="fw-bold form-label me-2" style={{ color: "white" }}>Insert status:</label> <br />
                         <input id="y" className="form-control" style={{ color: "white", backgroundColor: "black", width: "100%" }} ref={refStatus} type="text" aria-label="Recipient's username" aria-describedby="button-addon2" />
                     </div>
-                    <button type="button" className="btn btn-outline-dark align-middle mt-2" onClick={() => setFlicker(!flicker)}>Filtra</button>
+                    <button id="filtrato" type="button" className="btn btn-outline-dark align-middle mt-2" onClick={handleFilterClick}>Filtra</button>
                 </div>
 
                 <div className="col col-xlg-8 ">

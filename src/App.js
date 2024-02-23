@@ -14,9 +14,7 @@ import QuestDetail from './components/quest/QuestDetail';
 export const client = atom({});
 
 function App() {
-
   
-
   return (
 
     <>

@@ -29,7 +29,7 @@ export default function LoginForm() {
         axios.post("/guilds/login", login)
             .then((response) => {
                 setData(response.data);
-                navigate("/myquest");
+                navigate("/myquests");
             })
             .catch((error) => {
                 if (error.response) {

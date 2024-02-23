@@ -12,7 +12,7 @@ export default function SingleQuest(props) {
                         <h5 className="card-title">Type: {props.q.type}</h5>
                         <p className="card-text">Rank: {props.q.quest_rank}</p>
                         <p className="card-text">Reward: {props.q.reward} gold</p>
-                        <Link className="card-link" to={"/quests/" + props.q.id}>More Details</Link>
+                        <Link className="card-link" to={"/quests/" + props.q.id}>DETAILS</Link>
                     </div>
                 </div>
             </div>

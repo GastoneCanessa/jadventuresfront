@@ -6,19 +6,26 @@ import { client } from "../../App";
 import axios from "axios";
 
 export default function MyQuestPage() {
-    const [Guild, setGuild] = useAtom(client);
+    const [guild, setGuild] = useAtom(client);
     
     const [Quests, setQuests] = useState([]);
 
     useEffect(
-        () => {
-            axios.get("/quests/byguild/" + Guild.id).then(
-                response => { setQuests(response.data); }
+        () => 
+        {
+            console.log("Richiesta API: /quests/byguild/" + guild.id);//id 5
+
+            axios.get("/quests/byguild/" + guild.id).then(
+                (response) => 
+                { 
+                    setQuests(response.data); 
+                    console.log("fase impostazione set quests: /quests/byguild/" + guild.id);//id 5
+                }
             )
         },
         []
     );
-    console.log(Guild);
+    // console.log("finito useeffect"+guild);
 
     return (
         <div className="row">
@@ -27,7 +34,7 @@ export default function MyQuestPage() {
             </div>
             <div className="col-9 px-4">
                 <div className="row">
-                    {Quests && Quests.map((q) => <SingleQuest q={q} index={q.id} />)}
+                    {Quests && Quests.map((q) => <SingleQuest q={q} key={q.id} index={q.id} />)}
                 </div>
             </div>
         </div>

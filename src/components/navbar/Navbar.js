@@ -60,7 +60,7 @@ export default function Navbar() {
                         {isDataNotEmpty && (
                             <>
                                 <li className="nav-item">
-                                    <Link className="text-white nav-link active" to="/myquests">My Quests</Link>
+                                    <Link className="text-white nav-link active" to={"/myquests/byguild/" + data.id} >My Quests</Link>
                                 </li>
                                 <li className="nav-item">
                                     <Link className="text-white nav-link active" to="/">{data.name}</Link>

@@ -26,10 +26,13 @@ export default function LoginForm() {
 
     function sendForm() {
         axios.post("/guilds/login", login)
-            .then((response) => {
+            .then((response) => 
+            {
                 setData(response.data);
-                navigate("/myquests");
-                
+                const guildId = response.data.id;
+                navigate("/myquests/byguild/" + guildId);
+
+                console.log("id??" + guildId);
             })
             .catch((error) => {
                 if (error.response) {

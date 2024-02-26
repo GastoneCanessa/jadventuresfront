@@ -5,6 +5,7 @@ import { party } from "../../App";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Navbar() {
 
@@ -33,10 +34,11 @@ export default function Navbar() {
     }
 
 
+
     return (
 
         <>
-            <nav className="sticky-top text-white bg-black mb-4 navbar navbar-expand-lg ">
+            <nav className="sticky-top text-white mb-4 navbar navbar-expand-lg" style={{ backgroundColor: "#597E52" }} >
                 <div className="container">
 
                     <Link className="text-primary navbar-brand" to="homepage"></Link>

@@ -16,6 +16,9 @@ export default function QuestDetail() {
     const [partyData, setPartyData] = useAtom(party);
     const isDataNotEmpty = Object.keys(data).length > 0;
     const isPartyDataNotEmpty = Object.keys(partyData).length > 0;
+    const [errorMessage, setErrorMessage] = useState("");
+    const [showErrorPopup, setShowErrorPopup] = useState(false);
+
 
 
     useEffect(() => {
@@ -30,7 +33,7 @@ export default function QuestDetail() {
 
     function acceptQuest() {
         if (!isPartyDataNotEmpty) {
-            console.error("Party data is empty. Cannot accept quest.");
+            setErrorMessage("Party data is empty. Cannot accept quest.");
             return;
         }
 
@@ -51,9 +54,36 @@ export default function QuestDetail() {
                 navigate("/")
             })
             .catch((error) => {
-                console.error("Error accepting quest:", error);
+                if (error.response) {
+                    if (error.response.status == 400) {
+                        setErrorMessage("Il rango del party è troppo basso per questa quest.");
+                    }
+                    setShowErrorPopup(true);
+                }
+                
             });
     }
+
+    function ErrorPopup({ message, onClose }) {
+        return (
+            <div className="modal" tabIndex="-1" role="dialog" style={{ display: "block", backgroundColor: "rgba(0, 0, 0, 0.5)" }}>
+                <div className="modal-dialog" role="document">
+                    <div className="modal-content">
+                        <div className="modal-header">
+                            <h5 className="modal-title">Error</h5>
+                        </div>
+                        <div className="modal-body">
+                            {message}
+                        </div>
+                        <div className="modal-footer">
+                            <button type="button" className="btn btn-secondary" onClick={onClose}>Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        );
+    }
+
 
     function saveQuest() {
         let body = quest
@@ -133,6 +163,7 @@ export default function QuestDetail() {
                         <button className="btn btn-primary" onClick={() => acceptQuest()}>Accept</button>
                     </>
                 )}
+                {showErrorPopup && <ErrorPopup message={errorMessage} onClose={() => setShowErrorPopup(false)} />}
             </div>
         </div>
     );

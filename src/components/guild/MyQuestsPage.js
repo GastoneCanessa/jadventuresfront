@@ -10,6 +10,11 @@ export default function MyQuestPage() {
     const [flicker, setFlicker] = useState(false);
     const [Quests, setQuests] = useState([]);
 
+    if(Object.keys(guild).length == 0)
+    {
+        setGuild(JSON.parse(localStorage.getItem('clientState')));
+    }
+
     useEffect(
         () => 
         {

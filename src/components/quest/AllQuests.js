@@ -109,7 +109,7 @@ export default function AllQuests() {
             <div className="row">
 
                 <div className="sticky-top col col-4" >
-                    <div className=" card px-3 mx-4" style={{ backgroundColor: "#597E52" }} >
+                    <div className=" card px-3 mx-4 py-3" style={{ backgroundColor: "#597E52" }} >
                         <div className="p-2 px-4" >
                             <label htmlFor="type" className="fw-bold form-label me-2" style={{ color: "white" }}>Insert type:</label> <br />
                             <input id="type" name="type" className="form-control" style={{ color: "white", backgroundColor: "#879e6a", width: "100%" }} ref={refType} type="text" aria-label="Recipient's username" aria-describedby="button-addon2" />
@@ -135,7 +135,7 @@ export default function AllQuests() {
                             <label htmlFor="y" className="fw-bold form-label me-2" style={{ color: "white" }}>Insert status:</label> <br />
                             <input id="y" name="status" className="form-control" style={{ color: "white", backgroundColor: "#879e6a", width: "100%" }} ref={refStatus} type="text" aria-label="Recipient's username" aria-describedby="button-addon2" />
                         </div>
-                        <button id="filtrato" type="button" className="btn btn-outline-dark align-middle mt-2" onClick={handleFilter}    >Filtra</button>
+                        <button id="filtrato" type="button" className="btn btn-dark text-white btn-outline-secondary align-middle mt-2 border-0  mx-4 py-2 " onClick={handleFilter}    >Filtra</button>
                     </div>
                 </div>
                 <div className="col col-8 px-4">

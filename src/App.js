@@ -8,6 +8,7 @@ import QuestDetail from './components/quest/QuestDetail';
 import LoginFormParty from './components/login/LoginFormParty';
 import LoginFormGuild from './components/login/LoginFormGuild';
 import "bootstrap/dist/css/bootstrap.css";
+import AvailableQuestPage from './components/party/PartyQuestPage';
 
 export const client = atom({});
 export const party = atom({});
@@ -46,6 +47,7 @@ function App() {
         <Route path='/loginparty' element={<LoginFormParty/>}></Route>
         <Route path='/myquests/byguild/:id' element={<MyQuestPage/>}></Route>
         <Route path='/quests/:id' element={<QuestDetail/>}></Route>
+        <Route path='/available-quests' element={<AvailableQuestPage/>}></Route>
       </Routes>
     </BrowserRouter>
   );

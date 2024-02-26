@@ -26,8 +26,7 @@ export default function LoginFormGuild() {
 
     function sendForm() {
         axios.post("/guilds/login", login)
-            .then((response) => 
-            {
+            .then((response) => {
                 setData(response.data);
                 const guildId = response.data.id;
                 navigate("/myquests/byguild/" + guildId);

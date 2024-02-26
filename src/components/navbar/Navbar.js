@@ -32,6 +32,9 @@ export default function Navbar() {
                         <li className="nav-item">
                             <Link className="text-white  nav-link active" to="/">All Quests</Link>
                         </li>
+                        <li className="nav-item">
+                                    <Link className="text-white nav-link active border me-1" to="/available-quests">Available Quests</Link>
+                                </li>
 
                         {!isDataNotEmpty &&
                             (
@@ -48,6 +51,7 @@ export default function Navbar() {
                                 <li className="nav-item">
                                     <Link className="text-white nav-link active border me-1" to="/">{data.name}</Link>
                                 </li>
+                                
                                 <li className="nav-item">
                                     {/* <Link className="text-white nav-link active" to="/" onClick={logOut}>Seal image</Link> */}
                                     <Link to="" className="navbar-brand">

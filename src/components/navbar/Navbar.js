@@ -44,7 +44,7 @@ export default function Navbar() {
                     style={{ width: "75px", height: "60px" }}
                     src="/we.webp"
                     alt="Logo"
-                    onClick={logOut}
+                    onClick={()=>{navigate("/")}}
                 />
 
 

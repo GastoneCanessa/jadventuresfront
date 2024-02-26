@@ -28,9 +28,8 @@ export default function LoginFormParty() {
         axios.post("/parties/login", login)
             .then((response) => {
                 setData(response.data);
-                const guildId = response.data.id;
+                // const guildId = response.data.id;
                 navigate("/");
-
             })
             .catch((error) => {
                 if (error.response) {

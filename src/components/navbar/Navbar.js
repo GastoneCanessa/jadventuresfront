@@ -79,12 +79,12 @@ export default function Navbar() {
                                 <Link className="text-white nav-link active px-2" to={"/"} ><h4>Available Quests</h4></Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="text-white nav-link active border me-1" to="/">{part.name}</Link>
+                                <Link className=" nav-link  active fw-bold" to="/"><h4 className="fw-bold">{part.name}</h4></Link>
                             </li>
                             <li className="nav-item">
                                 {/* <Link className="text-white nav-link active" to="/" onClick={logOut}>Seal image</Link> */}
-                                <Link to="" className="navbar-brand text-white" onClick={logOutParty}>
-                                    Log Out
+                                <Link to="" className="text-white nav-link active px-2 ps-5" onClick={logOutParty}>
+                                    <h4>Log Out</h4>
                                 </Link>
                             </li>
                         </>

@@ -10,33 +10,29 @@ export default function MyQuestPage() {
     const [flicker, setFlicker] = useState(false);
     const [Quests, setQuests] = useState([]);
 
-    if(Object.keys(guild).length == 0)
-    {
+    if (Object.keys(guild).length == 0) {
         setGuild(JSON.parse(localStorage.getItem('clientState')));
     }
 
     useEffect(
-        () => 
-        {
+        () => {
             axios.get("/quests/byguild/" + guild.id).then(
-                (response) => 
-                { 
-                    setQuests(response.data); 
+                (response) => {
+                    setQuests(response.data);
                 }
             )
         },
         [flicker]
     );
 
-    function invertFlicker()
-    {
+    function invertFlicker() {
         setFlicker(!flicker)
     }
 
     return (
         <div className="row">
             <div className="col-3 border border-black">
-                <NewQuestForm  invertFleaker={invertFlicker}/>
+                <NewQuestForm invertFleaker={invertFlicker} />
             </div>
             <div className="col-9 px-4">
                 <div className="row">

@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 import { useAtom } from 'jotai';
 import { client } from "../../App";
+import { party } from "../../App";
 
 export default function QuestDetail() {
     let { id } = useParams();
@@ -12,7 +13,9 @@ export default function QuestDetail() {
     const [updating, setUpdating] = useState(false);
     const [success, setSuccess] = useState(false);
     const [data, setData] = useAtom(client);
+    const [partyData, setPartyData] = useAtom(party);
     const isDataNotEmpty = Object.keys(data).length > 0;
+    const isPartyDataNotEmpty = Object.keys(partyData).length > 0;
 
 
     useEffect(() => {
@@ -25,11 +28,37 @@ export default function QuestDetail() {
             });
     }, [id]);
 
+    function acceptQuest() {
+        if (!isPartyDataNotEmpty) {
+            console.error("Party data is empty. Cannot accept quest.");
+            return;
+        }
+
+        const requestBody = {
+            id: quest.id,
+            party_id: partyData.id,
+            guild_id: quest.guild_id
+        };
+
+        console.log(quest);
+        console.log(requestBody);
+
+        axios.put("/quests/byparty", requestBody)
+            .then((response) => {
+                console.log("Quest accepted successfully:", response.data);
+
+                setQuest(response.data);
+                navigate("/")
+            })
+            .catch((error) => {
+                console.error("Error accepting quest:", error);
+            });
+    }
 
     function saveQuest() {
         let body = quest
         body.guild_id = quest.guild.id
-        axios.put("/quests", quest)
+        axios.put("/quests/byguild", quest)
             .then(() => setUpdating(false));
     }
 
@@ -94,8 +123,14 @@ export default function QuestDetail() {
                 </div>
                 {isDataNotEmpty && (
                     <>
-                    <button className="btn btn-primary" onClick={() => setUpdating(true)}>Modify</button>
-                    <button className="btn btn-danger mx-2" onClick={handleDelete}>Delete</button>
+                        <button className="btn btn-primary" onClick={() => setUpdating(true)}>Modify</button>
+                        <button className="btn btn-danger mx-2" onClick={handleDelete}>Delete</button>
+                    </>
+                )}
+
+                {isPartyDataNotEmpty && (
+                    <>
+                        <button className="btn btn-primary" onClick={() => acceptQuest()}>Accept</button>
                     </>
                 )}
             </div>

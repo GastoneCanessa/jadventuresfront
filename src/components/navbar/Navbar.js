@@ -21,12 +21,12 @@ export default function Navbar() {
         setData({});
         localStorage.setItem('clientState', JSON.stringify({}));
         navigate("/");
-         // Aggiorna il localStorage direttamente
+        // Aggiorna il localStorage direttamente
     }
 
     function logOutParty() {
         setPart({});
-         // Aggiorna il localStorage direttamente
+        // Aggiorna il localStorage direttamente
         localStorage.setItem('partyState', JSON.stringify({}));
         navigate("/");
 
@@ -69,7 +69,7 @@ export default function Navbar() {
                         {isPartaNotEmpty && (
                             <>
                                 <li className="nav-item">
-                                    <Link className="text-white nav-link active" to={"/"} >Available Quests</Link>
+                                    <Link className="text-white nav-link active" to={"/available-quests"} >Available Quests</Link>
                                 </li>
                                 <li className="nav-item">
                                     <Link className="text-white nav-link active border me-1" to="/">{part.name}</Link>
@@ -91,7 +91,7 @@ export default function Navbar() {
                                 <li className="nav-item">
                                     <Link className="text-white nav-link active border me-1" to="/">{data.name}</Link>
                                 </li>
-                                
+
                                 <li className="nav-item">
                                     {/* <Link className="text-white nav-link active" to="/" onClick={logOut}>Seal image</Link> */}
                                     <Link to="" className="navbar-brand">

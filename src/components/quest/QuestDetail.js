@@ -84,55 +84,60 @@ export default function QuestDetail() {
     }
 
     let readOnlyCard = (
-        <div className="card sticky-top mx-3 mt-4" style={{ top: "100px" }}>
-            <div className="container p-5">
-                <div className="mb-3">
-                    <p className="form-label">Create Date: {quest.date_created}</p>
-                </div>
+        <div className=" card sticky-top mt-5" style={{ width: "50vw" }}>
+            <div style={{ backgroundColor: "#FFFFEC" }}>
+                <div className="d-flex">
+                    <div>
+                        <img src={quest.map_url} className="card-img-top" alt="Quest Image" style={{ width: "30vw" }} />
+                    </div>
+                    <div className='ms-4 mt-5'>
+                        <div className="mb-3">
+                            <p className="form-label">Create Date: {quest.date_created}</p>
+                        </div>
 
-                <div className="mb-3">
-                    <p className="form-label">Status: {quest.status}</p>
-                </div>
+                        <div className="mb-3">
+                            <p className="form-label">Status: {quest.status}</p>
+                        </div>
 
-                <div className="mb-3">
-                    <p className="form-label">Date Complete: {quest.date_completed}</p>
-                </div>
+                        <div className="mb-3">
+                            <p className="form-label">Date Complete: {quest.date_completed}</p>
+                        </div>
 
-                <div className="mb-3">
-                    <p className="form-label">Rank: {quest.quest_rank}</p>
-                </div>
+                        <div className="mb-3">
+                            <p className="form-label">Rank: {quest.quest_rank}</p>
+                        </div>
 
-                <div className="mb-3">
-                    <p className="form-label">Area: {quest.area}</p>
-                </div>
+                        <div className="mb-3">
+                            <p className="form-label">Area: {quest.area}</p>
+                        </div>
 
-                <div className="mb-3">
-                    <p className="form-label">Map Url: {quest.map_url}</p>
-                </div>
+                        <div className="mb-3">
+                            <p className="form-label">Description: {quest.description}</p>
+                        </div>
 
-                <div className="mb-3">
-                    <p className="form-label">Description: {quest.description}</p>
-                </div>
+                        <div className="mb-3">
+                            <p className="form-label">Type: {quest.type}</p>
+                        </div>
 
-                <div className="mb-3">
-                    <p className="form-label">Type: {quest.type}</p>
-                </div>
+                        <div className="mb-3">
+                            <p className="form-label">Reward: {quest.reward} gold</p>
+                        </div>
+                        <div className='m-3 d-flex flex-column align-items-end'>
+                            {isDataNotEmpty && (
+                                <>
+                                    <button className="btn btn-primary" onClick={() => setUpdating(true)}>Modify</button>
+                                    <button className="btn btn-danger mx-2" onClick={handleDelete}>Delete</button>
+                                </>
+                            )}
 
-                <div className="mb-3">
-                    <p className="form-label">Reward: {quest.reward}</p>
+                            {isPartyDataNotEmpty && (
+                                <>
+                                    <button className="btn btn-primary" onClick={() => acceptQuest()}>Accept</button>
+                                </>
+                            )}
+                        </div>
+                    </div>
                 </div>
-                {isDataNotEmpty && (
-                    <>
-                        <button className="btn btn-primary" onClick={() => setUpdating(true)}>Modify</button>
-                        <button className="btn btn-danger mx-2" onClick={handleDelete}>Delete</button>
-                    </>
-                )}
-
-                {isPartyDataNotEmpty && (
-                    <>
-                        <button className="btn btn-primary" onClick={() => acceptQuest()}>Accept</button>
-                    </>
-                )}
             </div>
         </div>
     );
@@ -220,7 +225,7 @@ export default function QuestDetail() {
 
     return (
         <div className="row">
-            <div className="col-4">
+            <div className="justify-content-center d-flex">
                 {!updating && readOnlyCard}
                 {updating && updatableCard}
             </div>

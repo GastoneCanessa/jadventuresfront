@@ -76,7 +76,7 @@ export default function Navbar() {
                     {isPartaNotEmpty && (
                         <>
                             <li className="nav-item">
-                                <Link className="text-white nav-link active px-2" to={"/"} ><h4>Available Quests</h4></Link>
+                                <Link className="text-white nav-link active px-2" to={"/available-quests"} ><h4>Available Quests</h4></Link>
                             </li>
                             <li className="nav-item">
                                 <Link className="text-white nav-link active border me-1" to="/">{part.name}</Link>
